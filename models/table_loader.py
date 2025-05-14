@@ -4,18 +4,9 @@ TODO: Abhängigkeiten einfügen
 import sqlite3
 import traceback
 
-from PySide6.QtGui import QStandardItemModel, QStandardItem, Qt
-from PySide6.QtWidgets import QTableView, QHeaderView
-
-
-def init_tables(self):
-    """
-        Initializes all table views by loading data from corresponding database views.
-        """
-    for table_view_name, db_view_name in self.table_mapping.items():
-        table_view = self.findChild(QTableView, table_view_name)
-        if table_view:
-            self.load_table(table_view, db_view_name)
+from PyQt6.QtCore import Qt
+from PyQt6.QtGui import QStandardItemModel, QStandardItem
+from PyQt6.QtWidgets import QTableView, QHeaderView
 
 
 def load_table(self, table_view: QTableView, db_view: str):
@@ -69,3 +60,13 @@ def load_table(self, table_view: QTableView, db_view: str):
         error_message = f"Error while populating table {db_view}: {e}\n{traceback.format_exc()}"
         print(error_message)
         self.show_error("Table Population Error", error_message)
+
+
+def init_tables(self):
+    """
+        Initializes all table views by loading data from corresponding database views.
+        """
+    for table_view_name, db_view_name in self.table_mapping.items():
+        table_view = self.findChild(QTableView, table_view_name)
+        if table_view:
+            load_table(table_view, db_view_name, self.db_path)

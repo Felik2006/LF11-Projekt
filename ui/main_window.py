@@ -3,15 +3,17 @@ TODO: Abhängigkeiten einfügen
  """
 import sys
 import traceback
-from PySide6.QtCore import QModelIndex
-from PySide6.QtWidgets import QMainWindow, QPushButton, QTableView, QWidget
+
+from PyQt6 import uic
+from PyQt6.QtCore import QModelIndex
+from PyQt6.QtWidgets import QMainWindow, QPushButton, QTableView, QWidget
 from utils.error_handler import show_error
 from models.table_loader import init_tables
 from logic.from_utils import clear_and_enable_form_fields
 
 
 class MainWindow(QMainWindow):
-    def __init__(self, uic=None):
+    def __init__(self):
         super().__init__()
         self.tv_detail_dienstleister = self.findChild(QWidget, "tv_detail_rechnungen")
         self.tv_detail_rechnungen = self.findChild(QWidget, "tv-detail_rechnung")
@@ -37,7 +39,7 @@ class MainWindow(QMainWindow):
             "tv_rechnungen": self.tv_detail_rechnungen,
             "tv_dienstleister": self.tv_detail_dienstleister,
         }
-        init_tables()
+        init_tables(self)
 
         self.w_rechnung_hinzufuegen.hide()
 

@@ -1,7 +1,7 @@
 import traceback
 
-from PySide6.QtCore import QModelIndex, Qt
-from PySide6.QtWidgets import QLineEdit, QComboBox, QDoubleSpinBox, QTextEdit, QPlainTextEdit, QTextBrowser, QLabel, \
+from PyQt6.QtCore import QModelIndex, Qt
+from PyQt6.QtWidgets import QLineEdit, QComboBox, QDoubleSpinBox, QTextEdit, QPlainTextEdit, QTextBrowser, QLabel, \
     QTableView
 
 """
