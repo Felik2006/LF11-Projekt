@@ -1,11 +1,8 @@
-from PyQt6.QtCore import QModelIndex, Qt
-from PyQt6.QtWidgets import QMainWindow, QApplication, QTableView, QHeaderView, QLineEdit, QLabel, QMessageBox, \
-    QComboBox, QDoubleSpinBox, QPlainTextEdit, QTextBrowser, QTextEdit, QPushButton
-from PyQt6.QtGui import QStandardItemModel, QStandardItem
-from PyQt6 import uic
-import sqlite3
 import sys
-import traceback
+
+from PySide6.QtWidgets import QApplication
+
+from ui.main_window import MainWindow
 
 """
 TODO: Abhängigkeiten einfügen
